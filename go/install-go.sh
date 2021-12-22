@@ -1,14 +1,22 @@
 #!/bin/bash
 set -e
 
-## BASHDOC
-## ENDBASHDOC
+# Author https://github.com/canha/golang-tools-install-script
+# License apache 2.0
+
 
 VERSION="1.17.5"
 
-
+# if no goroot, you probably want a local go install
 [ -z "$GOROOT" ] && GOROOT="$HOME/.go"
+
+# if running as sudo/root, you probably want systemwide go
+[ "$(whoami)" == "root" ] && GOROOT="/usr/local/go/"
+
+# if nogo path, well, you must have gopath
 [ -z "$GOPATH" ] && GOPATH="$HOME/go"
+
+
 
 OS="$(uname -s)"
 ARCH="$(uname -m)"
@@ -18,6 +26,9 @@ case $OS in
         case $ARCH in
         "x86_64")
             ARCH=amd64
+            ;;
+        "aarch64")
+            ARCH=arm64
             ;;
         "armv6")
             ARCH=armv6l
@@ -50,6 +61,7 @@ elif [ -n "`$SHELL -c 'echo $BASH_VERSION'`" ]; then
 fi
 
 if [ "$1" == "--remove" ]; then
+    echo "removing go from $GOROOT  "
     rm -rf "$GOROOT"
     if [ "$OS" == "Darwin" ]; then
         sed -i "" '/# GoLang/d' "$HOME/.${shell_profile}"
