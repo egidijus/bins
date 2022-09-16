@@ -16,8 +16,6 @@ install_awscli(){
   ~/.virtualenv/awscli/bin/pip install -r ${SCRIPTPATH_ALTF}/requirements.txt
 }
 
-install
-
 set -x
 
 ## WORKS
