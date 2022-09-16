@@ -22,7 +22,7 @@ set -x
 # [[ ! -d ${LOCAL_BIN_DIR} ]] && mkdir -p ${LOCAL_BIN_DIR}
 
 find_awscli(){
-  find ${awscli_BIN_DIR}/awscli* -type f -exec bash -c 'make_symlinks "$@"' bash {} \;
+  find ${awscli_BIN_DIR}/aws* -type f -exec bash -c 'make_symlinks "$@"' bash {} \;
 }
 
 make_symlinks(){
