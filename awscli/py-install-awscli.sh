@@ -4,9 +4,11 @@ export VIRTUALENV_DIR=~/.virtualenv
 export awscli_BIN_DIR=${VIRTUALENV_DIR}/awscli/bin
 export LOCAL_BIN_DIR=~/.local/bin
 
+THIS_BINS_REPO_DIR=$(pwd)
+
 cd ${VIRTUALENV_DIR}
 
-virtualenv -p python3 awscli && source ~/.virtualenv/awscli/bin/activate && pip install -r ~/.virtualenv/requirements-awscli.txt
+virtualenv -p python3 awscli && source ~/.virtualenv/awscli/bin/activate && pip install -r ${THIS_BINS_REPO_DIR}/awscli/requirements.txt
 
 set -x
 
