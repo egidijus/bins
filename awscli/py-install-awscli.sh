@@ -1,14 +1,22 @@
 #!/usr/bin/env bash
 
+set -eE
+# trace ERR through pipes
+set -o pipefail errexit errtrace functrace
+
 export VIRTUALENV_DIR=~/.virtualenv
 export awscli_BIN_DIR=${VIRTUALENV_DIR}/awscli/bin
 export LOCAL_BIN_DIR=~/.local/bin
 
-THIS_BINS_REPO_DIR=$(pwd)
+SCRIPTPATH_ALTF="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
-cd ${VIRTUALENV_DIR}
+install_awscli(){
+  cd ${VIRTUALENV_DIR}
+  virtualenv -p python3 awscli
+  ~/.virtualenv/awscli/bin/pip install -r ${SCRIPTPATH_ALTF}/requirements.txt
+}
 
-virtualenv -p python3 awscli && source ~/.virtualenv/awscli/bin/activate && pip install -r ${THIS_BINS_REPO_DIR}/awscli/requirements.txt
+install
 
 set -x
 
@@ -35,6 +43,7 @@ make_symlinks(){
 export -f find_awscli
 export -f make_symlinks
 
+install_awscli
 find_awscli
 
 set +x
