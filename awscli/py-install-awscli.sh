@@ -4,7 +4,7 @@ set -eE
 # trace ERR through pipes
 set -o pipefail errexit errtrace functrace
 
-export VIRTUALENV_DIR=~/.virtualenv
+export VIRTUALENV_DIR=~/.virtualenvs
 export awscli_BIN_DIR=${VIRTUALENV_DIR}/awscli/bin
 export LOCAL_BIN_DIR=~/.local/bin
 
