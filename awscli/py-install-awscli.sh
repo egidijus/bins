@@ -13,7 +13,7 @@ SCRIPTPATH_ALTF="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 install_awscli(){
   cd ${VIRTUALENV_DIR}
   virtualenv -p python3 awscli
-  ~/.virtualenv/awscli/bin/pip install -r ${SCRIPTPATH_ALTF}/requirements.txt
+  ${VIRTUALENV_DIR}/awscli/bin/pip install -r ${SCRIPTPATH_ALTF}/requirements.txt
 }
 
 set -x
