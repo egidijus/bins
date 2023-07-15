@@ -3,7 +3,7 @@ awscli @ git+https://github.com/aws/aws-cli/@fb077b5e21911025a193edeaee24557394a
 awscrt==0.16.4
 cffi==1.15.1
 colorama==0.4.3
-cryptography==41.0.0
+cryptography==41.0.2
 distro==1.5.0
 docutils==0.15.2
 jmespath==1.0.1
