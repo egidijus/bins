@@ -1,7 +1,5 @@
 # bins
-binaries, scripts, functions that are helpful, nothing specific, anything can go here, maybe i might even separate by OS/distro.
-
-
+binaries, scripts, functions that are helpful, and have a specific function.
 
 
 
