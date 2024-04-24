@@ -5,7 +5,7 @@ set -e
 # License apache 2.0
 
 
-VERSION="1.17.5"
+VERSION="1.22.2"
 
 # if no goroot, you probably want a local go install
 [ -z "$GOROOT" ] && GOROOT="$HOME/.go"
